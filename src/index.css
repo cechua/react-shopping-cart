@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@font-face {
+  font-family: "Semi-Coder-Regular";
+  src: local("Semi-Coder-Regular"), url("./fonts/Semi-Coder-Regular.otf");
+}
+
+.header {
+  background-color: #101610;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 100px;
+  font-family: "Semi-Coder-Regular";
+  font-size: 30px;
+  color: white;
+}
+
+.header-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #101610;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.git-icon {
+  position: relative;
+  top: 3px;
+  font-size: 16px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.link-item {
+  text-decoration: none;
+  color: white;
+}
+
+.link-item:hover,
+.link-item-active {
+  text-decoration: underline;
+}
