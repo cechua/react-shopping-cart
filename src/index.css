@@ -55,7 +55,8 @@ code {
   cursor: pointer;
 }
 
-.link-item {
+.link-item,
+.link-button {
   text-decoration: none;
   color: white;
 }
@@ -63,4 +64,44 @@ code {
 .link-item:hover,
 .link-item-active {
   text-decoration: underline;
+}
+
+.image {
+  height: 100%;
+  /* display: block; */
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+.image-bg {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+}
+
+.banner-text {
+  position: absolute;
+  top: 0px;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  height: 65%;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+}
+
+.button-base {
+  background-color: blueviolet;
+  border-radius: 5px;
+  padding: 16px 32px;
+  border: 2px solid black;
+  cursor: pointer;
+  color: white;
+}
+
+.button-base:hover {
+  border: 2px solid rgba(255, 255, 255, 0.596);
 }
