@@ -19,7 +19,7 @@ code {
 
 .header {
   background-color: #101610;
-  height: 75px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,11 +35,7 @@ code {
 }
 
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
+  height: 50px;
   background-color: #101610;
   color: white;
   display: flex;
@@ -76,7 +72,7 @@ code {
 
 .image-bg {
   width: 100%;
-  height: 90vh;
+  height: 88vh;
   position: relative;
 }
 
@@ -110,7 +106,7 @@ code {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 300px;
-  height: 350px;
+  height: 300px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -124,7 +120,7 @@ code {
 
 .card-image {
   object-fit: fill;
-  height: 250px;
+  height: 220px;
   width: 100%;
   position: relative;
 }
@@ -141,4 +137,56 @@ code {
 
 .card-text {
   margin: 0;
+}
+
+.shop-container {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  margin: 50px 0px 70px 0px;
+}
+
+.category-container ul {
+  margin: 0;
+}
+/* .category-container li:hover {
+  color: red;
+} */
+.category-container li {
+  position: relative;
+  color: #0087ca;
+  list-style: none;
+  font-size: 24px;
+  padding: 5px 0px;
+  cursor: pointer;
+  display: block;
+  width: max-content;
+}
+
+.category-container li:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.category-container li:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.items-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 30px;
+}
+
+@media only screen and (max-width: 1366px) {
+  .items-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
