@@ -1,14 +1,14 @@
 import React from "react";
 import MenuLink from "./MenuLink";
 
-const Header = () => {
+const Header = ({ itemsCount }) => {
   return (
     <div className="header">
       <span>PC Builder Shop</span>
       <div className="header-menu">
         <MenuLink url="/" name="Home" />
         <MenuLink url="/shop" name="Shop" />
-        <span>Checkout</span>
+        <span>Checkout({itemsCount})</span>
       </div>
     </div>
   );

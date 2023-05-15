@@ -1,7 +1,8 @@
 import Card from "components/common/Card";
-import React from "react";
+import ImageSlider from "components/common/ImageSlider";
+import React, { useState } from "react";
 
-const ShopPage = () => {
+const ShopPage = ({ addToCheckout }) => {
   const items = [
     {
       imageSrc:
@@ -124,13 +125,20 @@ const ShopPage = () => {
       productId: "cpu_1",
     },
   ];
-  const onClickHandler = () => {
-    alert("test");
+
+  const [showModal, setShowModal] = useState(false);
+  const [selectedItem, setSelectedItem] = useState({});
+  const [quantityCount, setQuantityCount] = useState(1);
+  const onClickHandler = (item) => {
+    setShowModal(true);
+    setSelectedItem(item);
   };
+
   return (
     <div className="shop-container">
       <div className="category-container">
         <ul>
+          <li>All</li>
           <li>Motherboards</li>
           <li>Processors</li>
           <li>Graphics Card</li>
@@ -140,16 +148,61 @@ const ShopPage = () => {
         </ul>
       </div>
       <div className="items-container">
-        {items.map((item) => (
+        {items.map((item, i) => (
           <Card
             imageSrc={item.imageSrc}
             imageSrcHover={item.imageSrcHover}
             cardText={item.itemName}
             cardSecondaryText={item.itemPrice}
-            onClickHandler={onClickHandler}
+            onClickHandler={() => onClickHandler(item)}
+            key={i}
           />
         ))}
       </div>
+      {showModal && selectedItem && (
+        <div id="myModal" className="modal">
+          <div className="modal-content">
+            <div className="modal-content-header">
+              <span>
+                {
+                  // @ts-ignore
+                  selectedItem.itemName
+                }
+              </span>
+              <span className="close" onClick={() => setShowModal(false)}>
+                &times;
+              </span>
+            </div>
+            <div className="modal-item-container">
+              <ImageSlider
+                images={[selectedItem.imageSrc, selectedItem.imageSrcHover]}
+              />
+              <p>Descriptions here</p>
+            </div>
+            <div className="modal-item-addToCheckout">
+              <div>
+                <button
+                  onClick={() => {
+                    if (quantityCount <= 0) return;
+                    setQuantityCount(quantityCount - 1);
+                  }}
+                >
+                  -
+                </button>
+                <span>{quantityCount}</span>
+                <button onClick={() => setQuantityCount(quantityCount + 1)}>
+                  +
+                </button>
+              </div>
+              <button
+                onClick={() => addToCheckout(quantityCount, selectedItem)}
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
