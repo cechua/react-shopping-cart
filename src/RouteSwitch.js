@@ -12,7 +12,6 @@ const RouteSwitch = () => {
   const [sideNavOpen, setSideNavOpen] = useState(false);
   const addToCheckout = (quantity, item) => {
     item["quantity"] = quantity;
-    console.log(item);
     setCheckoutItems([...checkoutItems, item]);
   };
   useEffect(() => {
@@ -32,7 +31,6 @@ const RouteSwitch = () => {
       window.removeEventListener("keydown", handleEsc);
     };
   }, []);
-  console.log(sideNavOpen);
   return (
     <BrowserRouter>
       <Header itemsCount={itemsCount} openSideCheckout={setSideNavOpen} />
