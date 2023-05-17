@@ -19,50 +19,50 @@ const ShopPage = ({ addToCheckout }) => {
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/9/90/Dimitri_Profile.jpg?width=640",
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
-      itemName: "CPU TEST",
+      itemName: "GPU TEST",
       itemPrice: "$123.00",
-      category: "Processor",
-      productId: "cpu_1",
+      category: "Graphics Card",
+      productId: "gpu_1",
     },
     {
       imageSrc:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/9/90/Dimitri_Profile.jpg?width=640",
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
-      itemName: "CPU TEST",
+      itemName: "RAM TEST",
       itemPrice: "$123.00",
-      category: "Processor",
-      productId: "cpu_1",
+      category: "RAM",
+      productId: "ram_1",
     },
     {
       imageSrc:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/9/90/Dimitri_Profile.jpg?width=640",
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
-      itemName: "CPU TEST",
+      itemName: "FAN TEST",
       itemPrice: "$123.00",
-      category: "Processor",
-      productId: "cpu_1",
+      category: "Fans",
+      productId: "fans_1",
     },
     {
       imageSrc:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/9/90/Dimitri_Profile.jpg?width=640",
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
-      itemName: "CPU TEST",
+      itemName: "Computer Case TEST",
       itemPrice: "$123.00",
-      category: "Processor",
-      productId: "cpu_1",
+      category: "Computer Cases",
+      productId: "computercase_1",
     },
     {
       imageSrc:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/9/90/Dimitri_Profile.jpg?width=640",
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
-      itemName: "CPU TEST",
+      itemName: "MOBO TEST",
       itemPrice: "$123.00",
-      category: "Processor",
-      productId: "cpu_1",
+      category: "Motherboards",
+      productId: "mobo_1",
     },
     {
       imageSrc:
@@ -130,25 +130,38 @@ const ShopPage = ({ addToCheckout }) => {
   const [selectedItem, setSelectedItem] = useState({});
   const [quantityCount, setQuantityCount] = useState(1);
   const onClickHandler = (item) => {
+    setQuantityCount(1);
     setShowModal(true);
     setSelectedItem(item);
   };
 
+  const uniqueCategories = (value, index, array) => {
+    return array.indexOf(value) === index;
+  };
+  const itemCategories = items
+    .map((item) => item.category)
+    .filter(uniqueCategories);
+
+  const [filteredItems, setFilteredItems] = useState(items);
+  const filterItems = (category) => {
+    if (category === "All") {
+      setFilteredItems(items);
+    } else {
+      const result = items.filter((item) => item.category === category);
+      setFilteredItems(result);
+    }
+  };
   return (
     <div className="shop-container">
       <div className="category-container">
         <ul>
-          <li>All</li>
-          <li>Motherboards</li>
-          <li>Processors</li>
-          <li>Graphics Card</li>
-          <li>RAM</li>
-          <li>Fans</li>
-          <li>Computer Cases</li>
+          {["All", ...itemCategories]?.map((category) => {
+            return <li onClick={() => filterItems(category)}>{category}</li>;
+          })}
         </ul>
       </div>
       <div className="items-container">
-        {items.map((item, i) => (
+        {filteredItems.map((item, i) => (
           <Card
             imageSrc={item.imageSrc}
             imageSrcHover={item.imageSrcHover}
@@ -173,32 +186,41 @@ const ShopPage = ({ addToCheckout }) => {
                 &times;
               </span>
             </div>
-            <div className="modal-item-container">
+            <div className="modal-item-image-container">
               <ImageSlider
                 images={[selectedItem.imageSrc, selectedItem.imageSrcHover]}
               />
-              <p>Descriptions here</p>
             </div>
-            <div className="modal-item-addToCheckout">
-              <div>
+            <div className="modal-item-body-container">
+              <div className="modal-item-descriptions">
+                <p>Descriptions here</p>
+              </div>
+              <div className="modal-item-addToCheckout">
+                <div className="modal-item-quantityIncrements">
+                  <button
+                    onClick={() => {
+                      if (quantityCount <= 0) return;
+                      setQuantityCount(quantityCount - 1);
+                    }}
+                    className="button-quantityIncrement"
+                  >
+                    -
+                  </button>
+                  <span>{quantityCount}</span>
+                  <button
+                    onClick={() => setQuantityCount(quantityCount + 1)}
+                    className="button-quantityIncrement"
+                  >
+                    +
+                  </button>
+                </div>
                 <button
-                  onClick={() => {
-                    if (quantityCount <= 0) return;
-                    setQuantityCount(quantityCount - 1);
-                  }}
+                  onClick={() => addToCheckout(quantityCount, selectedItem)}
+                  className="button-addToCart"
                 >
-                  -
-                </button>
-                <span>{quantityCount}</span>
-                <button onClick={() => setQuantityCount(quantityCount + 1)}>
-                  +
+                  Add to Cart
                 </button>
               </div>
-              <button
-                onClick={() => addToCheckout(quantityCount, selectedItem)}
-              >
-                Add to Cart
-              </button>
             </div>
           </div>
         </div>
