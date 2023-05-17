@@ -27,7 +27,9 @@ const Card = ({
       </div>
       <div className="card-text-container">
         <p className="card-text card-text-name">{cardText}</p>
-        <p className="card-text card-secondaryText-name">{cardSecondaryText}</p>
+        <p className="card-text card-secondaryText-name">
+          ${cardSecondaryText}
+        </p>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const ShopPage = ({ addToCheckout }) => {
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
       itemName: "CPU TEST",
-      itemPrice: "$123.00",
+      itemPrice: "123.00",
       category: "Processor",
       productId: "cpu_1",
     },
@@ -20,7 +20,7 @@ const ShopPage = ({ addToCheckout }) => {
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
       itemName: "GPU TEST",
-      itemPrice: "$123.00",
+      itemPrice: "123.00",
       category: "Graphics Card",
       productId: "gpu_1",
     },
@@ -30,7 +30,7 @@ const ShopPage = ({ addToCheckout }) => {
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
       itemName: "RAM TEST",
-      itemPrice: "$123.00",
+      itemPrice: "123.00",
       category: "RAM",
       productId: "ram_1",
     },
@@ -40,7 +40,7 @@ const ShopPage = ({ addToCheckout }) => {
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
       itemName: "FAN TEST",
-      itemPrice: "$123.00",
+      itemPrice: "123.00",
       category: "Fans",
       productId: "fans_1",
     },
@@ -50,7 +50,7 @@ const ShopPage = ({ addToCheckout }) => {
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
       itemName: "Computer Case TEST",
-      itemPrice: "$123.00",
+      itemPrice: "123.00",
       category: "Computer Cases",
       productId: "computercase_1",
     },
@@ -60,7 +60,7 @@ const ShopPage = ({ addToCheckout }) => {
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
       itemName: "MOBO TEST",
-      itemPrice: "$123.00",
+      itemPrice: "123.00",
       category: "Motherboards",
       productId: "mobo_1",
     },
@@ -70,7 +70,7 @@ const ShopPage = ({ addToCheckout }) => {
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
       itemName: "CPU TEST",
-      itemPrice: "$123.00",
+      itemPrice: "123.00",
       category: "Processor",
       productId: "cpu_1",
     },
@@ -80,7 +80,7 @@ const ShopPage = ({ addToCheckout }) => {
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
       itemName: "CPU TEST",
-      itemPrice: "$123.00",
+      itemPrice: "123.00",
       category: "Processor",
       productId: "cpu_1",
     },
@@ -90,7 +90,7 @@ const ShopPage = ({ addToCheckout }) => {
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
       itemName: "CPU TEST",
-      itemPrice: "$123.00",
+      itemPrice: "123.00",
       category: "Processor",
       productId: "cpu_1",
     },
@@ -100,7 +100,7 @@ const ShopPage = ({ addToCheckout }) => {
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
       itemName: "CPU TEST",
-      itemPrice: "$123.00",
+      itemPrice: "123.00",
       category: "Processor",
       productId: "cpu_1",
     },
@@ -110,7 +110,7 @@ const ShopPage = ({ addToCheckout }) => {
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
       itemName: "CPU TEST",
-      itemPrice: "$123.00",
+      itemPrice: "123.00",
       category: "Processor",
       productId: "cpu_1",
     },
@@ -120,7 +120,7 @@ const ShopPage = ({ addToCheckout }) => {
       imageSrcHover:
         "https://oyster.ignimgs.com/mediawiki/apis.ign.com/fire-emblem-nintendo-switch/6/60/Edelgard_Profile.jpg?width=640",
       itemName: "CPU TEST",
-      itemPrice: "$123.00",
+      itemPrice: "123.00",
       category: "Processor",
       productId: "cpu_1",
     },
@@ -216,7 +216,7 @@ const ShopPage = ({ addToCheckout }) => {
                 </div>
                 <button
                   onClick={() => addToCheckout(quantityCount, selectedItem)}
-                  className="button-addToCart"
+                  className="buttonStyled button-addToCart"
                 >
                   Add to Cart
                 </button>
